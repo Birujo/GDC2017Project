@@ -9,7 +9,7 @@ using UnityEngine;
  * Created On: 2017 Oct 08
  * 
  * Last Edited By: Charlie Shin
- * Last Edited On: 2017 Oct 08
+ * Last Edited On: 2017 Oct 19
  * 
  * To send debug text to UI, add this component to game object, then within any script, grab this script and
  * use handler to send debug lines to handler.
@@ -20,10 +20,11 @@ public class PropProperties : MonoBehaviour
 {
     /* Public variables (Subject to change often based on game functions */
     public bool isDestructible = false; /* Is this prop can be called via Destroy()? */
+    public bool reportPosition = false; /* Report this prop's position to debug window? */
 
     /* Private variables */
     private DebugReportSender debug;
-    private float maxRefreshRate = 1.0f;
+    private float maxRefreshRate = .5f;
     private float counter = 0.0f;
 
     private void Awake()
@@ -42,10 +43,20 @@ public class PropProperties : MonoBehaviour
          */
         if (counter > maxRefreshRate)
         {
-            counter = 0;
+            if (reportPosition)
+                StartCoroutine("ReportPosition");
 
-            debug.SendLog("Demo 1 second counter from " + this.gameObject.name);
+            counter = 0;
         }
         else counter += Time.deltaTime;
+    }
+
+    IEnumerator ReportPosition()
+    {
+        debug.SendLog("Name: " + this.gameObject.name); /* Report object's name first */
+        debug.Send("Pos X: " + this.transform.position.x); /* Report X position */
+        debug.Send("Pos Y: " + this.transform.position.y); /* Report Y position */
+
+        yield return null; /* Nothing to return after this coroutine; return null*/
     }
 }

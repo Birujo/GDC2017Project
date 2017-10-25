@@ -25,9 +25,11 @@ public class DebugReportHandler : MonoBehaviour
     private Text debugWindow;
     private string[] lines;
     private int lineCount = 0;
+    private ScrollRect rect;
 
     private void Awake()
     {
+        rect = GameObject.Find("gui_debug_scrollview").GetComponent<ScrollRect>();
         lines = new string[maxLineNumber];
         lines[lineCount] = "Test String";
 
@@ -99,5 +101,9 @@ public class DebugReportHandler : MonoBehaviour
         {
             debugWindow.text += line;
         }
+
+        Canvas.ForceUpdateCanvases();
+        rect.verticalNormalizedPosition = 0f;
+        Canvas.ForceUpdateCanvases();
     }
 }

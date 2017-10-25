@@ -26,7 +26,7 @@ public class DebugReportSender : MonoBehaviour
      */
     private void Awake()
     {
-        handler = GameObject.Find("debug_text").GetComponent<DebugReportHandler>();
+        handler = GameObject.Find("gui_debug_text").GetComponent<DebugReportHandler>();
     }
 
     /* Wrapper functions */
