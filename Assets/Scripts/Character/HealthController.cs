@@ -15,7 +15,7 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-	[AddComponentMenu("GDC/World/HealthController.cs")]
+	[AddComponentMenu("GDC/Character/HealthController.cs")]
 
 	public Slider healthSlider = null;
 	public int maxHealth = 10;
