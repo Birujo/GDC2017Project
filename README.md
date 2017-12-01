@@ -1,17 +1,15 @@
 # GDC 2017 Project Management Repository
 
-* When requesting pull(merge), if a script is missing header and comment(s), it will be denied.
-* Each and every script will have its header, to indicate who changed what.
-* ```
-  /*
-   * Name_Of_Script.cs
-   * 
-   * Created By: John Doe
-   * Created On: 2017 Oct 07
-   * Last Edited By: Jane Doe
-   * Last Edited On: 2017 Oct 08
-   * 
-   */
-  ```
-* Change made by other than original creator must include their initial in the comment line.
-* It is strongly encouraged to create [AddComponentMenu("GDC/Scripts/Script_Name.cs")] for each script for easy searching.
+Following assets are accepted;
+
+1. Scene
+2. Script
+3. Sprite
+4. Sound
+5. Prefabs
+6. Animation
+7. Animator
+
+No other assets are accepted unless otherwise there has been a request to create a folder for specified asset(s).
+
+Refer to [General Guideline for more information](https://github.com/CSPon/GDC2017Project/blob/master/Documentations/README.md)
